@@ -82496,6 +82496,7 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   goat:'#f0e8d9',goatB:'#8d6c50',goatD:'#4b3a2f',ox:'#9b7454',
   paint:'#b5543a',paintB:'#3f6aa0',
  };
+ Object.assign(C,{water:'#3d86cf'}); // v1.9: the unique fountain/villa share the era sea
  const make=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use(C);builder(a);return a.bake(key,ERA,meta);};
  const TAU=Math.PI*2,sc=(list,s)=>list.map(([r,h])=>[r*s,h*s]);
 
@@ -82982,6 +82983,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   marble:'#f3f0e8',marbleS:'#dcd6ca',marbleD:'#c8c1b2',rock:'#bcae96',rockD:'#a39580',rockL:'#cfc3ad',
   wheat:'#e2b65a',wheatD:'#c99a3e',soil:'#b98a4e',wool:'#f4f1ea',woolD:'#3d3836',boat:'#a46a3f',boatD:'#7d4f2f',
   red:'#e0533e',white:'#fbf8f0',purple:'#9a6cc6',yellow:'#f1cd4c',pot:'#c86f45',water:'#7fd3dc'};
+ // v1.9 era palette (17.10.2026): Midday Mediterranean: bleached straw, silver olives, dark cypress, cobalt sea, marble, terracotta.
+ Object.assign(CL,{olive:'#a4ac85',oliveD:'#8e9772',oliveB:'#bfc6a2',trunk:'#6d5a48',cyp:'#3c5e52',cypD:'#2f4d43',wheat:'#efc24e',wheatD:'#d3a33b',soil:'#c79a5c',water:'#5b9ee0'});
  const clay=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use({...C,...CL});builder(a);return a.bake(key,ERA,{clay:true,...meta});};
  const lump=(a,x,y,z,r,c)=>a.ball(x,y,z,r,c,1,1,1,0);
  function oliveTree(a,x=0,z=0,s=1,v=0){
@@ -83077,6 +83080,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  biome.props={...biome.props,grass:['ancientCFlowers'],forest:['ancientCOlive0'],field:['ancientCWheat'],town:['ancientCHouse0'],mountain:['ancientCBoulders'],civic:['ancientCPot']};
  biome.townTiers={1:'ancientCHouse0',2:'ancientCHouses',3:'ancientCTempleT'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
+ // v1.9 era ground palette: no colour carried over from the previous era.
+ Object.assign(S.palette,{grass:'#d6c983',forest:'#a8a77c',water:'#2f7fc4',field:'#e7bd55',town:'#efe2ca',mountain:'#ddd0b2',civic:'#f6f2ea'});biome.palette={...S.palette};
 })();
 
 </script>
@@ -83394,6 +83399,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   wheat:'#ebc15b',wheatD:'#cf9f42',soil:'#b98b54',hay:'#edc86c',wood:'#a87449',woodL:'#c49163',woodD:'#80573a',boat:'#a66c41',
   wool:'#f6f3eb',woolD:'#3d3836',red:'#dc4f3f',white:'#fbf8f0',blue:'#4f70c2',yellow:'#f2cf4e',pink:'#f2a3be',
   lily:'#77ad4b',lilyL:'#92c25c',water:'#7cc6e6',gold:'#e8bb4f',green:'#6fae4a',orange:'#e98a3c'};
+ // v1.9 era palette (17.10.2026): Northern green kingdom: emerald meadows, dark spruce, amber fields, cold steel water, burgundy and slate roofs, grey stone.
+ Object.assign(CL,{oak:'#4d9a3e',oakD:'#3f8636',oakL:'#62ad48',oakB:'#7cc152',spruce:'#2f6b4a',spruceD:'#255a3e',trunk:'#6b4630',wall:'#efe0bf',wallW:'#f6ecd6',beam:'#5e3b28',roof:'#a8413b',roofD:'#8e3532',roofO:'#b8573f',slate:'#5f6b78',slateD:'#4e5966',barn:'#9c3f34',wheat:'#d99a3e',wheatD:'#b97f30',hay:'#dba652',soil:'#8f6440',water:'#6f9ec0',lily:'#5f9a4a',lilyL:'#79b05a',orange:'#c9663a'});
  const clay=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use({...C,...CL});builder(a);return a.bake(key,ERA,{clay:true,...meta});};
  // A chamfered box with a wide bevel: 44 triangles that shade like a rounded box.
  const soft=(a,x,y,z,w,h,d,c,ry=0,k=.3)=>a.box(x,y,z,w,h,d,c,ry,Math.min(w,h,d)*k);
@@ -83674,6 +83681,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  for(const [cover,keys] of Object.entries(biome.reservesByCover))for(const key of keys)A.models[key].suitableCovers=[cover];
  biome.townTiers={1:'medievalCHouse0',2:'medievalCHouses',3:'medievalTownHall'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
+ // v1.9 era ground palette: no colour carried over from the previous era.
+ Object.assign(S.palette,{grass:'#69ad48',forest:'#3f7a45',water:'#4f7fa3',field:'#d6993e',town:'#a88a63',mountain:'#8f938d',civic:'#a9a69c'});biome.palette={...S.palette};
 })();
 
 </script>
@@ -84286,6 +84295,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   red:'#d6553f',redD:'#b44231',green:'#508e62',greenL:'#6caa7b',awnR:'#d9533f',awnW:'#f7f0e3',
   cowW:'#f8f4ed',cowB:'#4d3d35',pink:'#ebb6a6',gold:'#f1c450',water:'#5dbac6',daisy:'#fbf8f1',poppy:'#e0533e',
  };
+ // v1.9 era palette (17.10.2026): Autumn of brick and soot: copper and rust crowns, khaki meadows, dark jade water, tar-black roofs, brass.
+ Object.assign(CL,{leaf:'#5f7a3a',leafD:'#4d6630',leafL:'#7a8f45',leafB:'#93a052',autumn:'#c8642e',autumnD:'#a9502a',autumnL:'#de8a3a',verd:'#c9894c',verdD:'#a86d3a',slate:'#4a4744',slateD:'#3b3936',slateL:'#5d5955',tile:'#8f4a36',tileD:'#763c2d',water:'#3e7d74',green:'#5a6e3a',greenL:'#6f8247',sprout:'#9aa04a',sproutD:'#838a3e',hay:'#d9a845',hayD:'#bf8f38',wheat:'#d2a03a',wheatD:'#b5862f',soil:'#8a6446'});
  const clay=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use({...C,...CL});builder(a);return a.bake(key,ERA,{clay:true,...meta});};
  const lump=(a,x,y,z,r,c)=>a.ball(x,y,z,r,c,1,1,1,0);
  // Light clay box (192 triangles, seg 1 is a soft 48-triangle chamfer).
@@ -84710,6 +84721,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  for(const [cover,keys] of Object.entries(biome.reservesByCover))for(const key of keys)A.models[key].suitableCovers=[cover];
  biome.townTiers={1:'industrialCHouse0',2:'industrialCHouses',3:'industrialCTownHall'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
+ // v1.9 era ground palette: no colour carried over from the previous era.
+ Object.assign(S.palette,{grass:'#a9a464',forest:'#6f6a3e',water:'#2f6b66',field:'#c79a3e',town:'#9d9184',mountain:'#857463',civic:'#6b5248'});biome.palette={...S.palette};
 })();
 
 </script>
@@ -85328,6 +85341,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   white:'#fbfaf6',concrete:'#dcd7cd',concreteL:'#ece9e2',concreteD:'#c0bab0',steel:'#b4bcc2',dark:'#555a61',tyre:'#3f4247',
   rock:'#a6aea9',rockD:'#8f9792',rockL:'#c0c6c1',snow:'#ffffff',hay:'#ebc666',green:'#6aa84f',copper:'#74ad9d',hayD:'#d3aa4b',barn:'#d35e4b',slate:'#7f909c',
   asphalt:'#757a82',line:'#f6f4ee',water:'#62b6e8',soil:'#a87a4f'};
+ // v1.9 era palette (17.10.2026): Bright mid-century summer: lime lawns, fresh round crowns, azure water, pastel facades, light flat roofs.
+ Object.assign(CL,{leaf:'#6cc04a',leafD:'#55a83d',leafL:'#8bd25c',leafY:'#b5dc55',pine:'#3f8f5c',pineD:'#337a4d',hedge:'#58a844',teal:'#4f8fd0',copper:'#d98b58',brick:'#d98a6a',brickL:'#e8a487',brickD:'#bd6e52',roof:'#e2e3e0',roofD:'#a9aeb2',water:'#58b4ef',hay:'#f2d24c',hayD:'#d9b43c',green:'#6cc04a'});
  const clay=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use({...C,...CL});builder(a);return a.bake(key,ERA,{clay:true,...meta});};
  // Rounded box with two subdivisions per edge (192 triangles): bodies only;
  // small trims stay chamfered boxes (44 triangles).
@@ -85745,6 +85760,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  for(const [cover,keys] of Object.entries(biome.reservesByCover))for(const key of keys)A.models[key].suitableCovers=[cover];
  biome.townTiers={1:'modernCHouse0',2:'modernCDeco',3:'modernCCityCentre'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
+ // v1.9 era ground palette: no colour carried over from the previous era.
+ Object.assign(S.palette,{grass:'#9fd85a',forest:'#7cc457',water:'#38a2e6',field:'#f0d14a',town:'#ece4d2',mountain:'#9ea9b3',civic:'#5c6168'});biome.palette={...S.palette};
 })();
 
 </script>
@@ -86345,6 +86362,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   rock:'#c8cecf',rockL:'#e6e9e9',rockD:'#adb6b9',rockS:'#8f999d',
   crystal:'#5ad3c7',crystalL:'#a6eee5',crystalV:'#a48de3',crystalVL:'#cdbdf3',
   lawn:'#93ce70',sprout:'#67b957',sproutL:'#8fd16c',tray:'#eff1eb',water:'#7cd2df',pink:'#f2b3cd',gold:'#f0cd72',metal:'#aab4bb'};
+ // v1.9 era palette (17.10.2026): Clean jade future: blue-green crowns, mint lawns, deep aquamarine water, pearl ceramic, deep blue glass. No purple foliage.
+ Object.assign(CL,{leaf:'#3f9c80',leafD:'#2f8470',leafL:'#5fb898',leafB:'#86cbb0',moss:'#3c9278',lilac:'#2e7f8f',lilacD:'#246b79',lilacL:'#9fd8d0',crystalV:'#7fd6e6',crystalVL:'#c5eef5',lawn:'#a5d8bd',sprout:'#58b48c',sproutL:'#7cc9a2',water:'#3cb9b0',glass:'#5a8fd6',glassD:'#3a6fc0'});
  const clay=(key,seed,builder,meta={})=>{const a=new K.KitAssembly(seed).use({...C,...CL});builder(a);return a.bake(key,ERA,{clay:true,...meta});};
  const lump=(a,x,y,z,r,c)=>a.ball(x,y,z,r,c,1,1,1,0);
  // Rounded box on a two-step shell: 192 triangles instead of rbox's 432.
@@ -86477,7 +86496,7 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  // three silhouettes; the arcology with sky bridges over a public plaza.
  function homeA(a,v=0){
   soft(a,0,0,0,.46,.18,.36,v?'white':'whiteW',0,.06);soft(a,-.01,.17,-.01,.42,.05,.32,'glass',0,.02);
-  soft(a,-.05,.21,-.02,.32,.13,.3,'whiteW',0,.05);soft(a,-.05,.33,-.02,.27,.04,.25,'lawn',0,.018);lump(a,-.1,.38,-.06,.055,'leaf');lump(a,.02,.37,.04,.045,'leafL');
+  soft(a,-.05,.21,-.02,.32,.13,.3,'whiteW',0,.05);soft(a,-.05,.33,-.02,.27,.04,.25,'ceramicD',0,.018);lump(a,-.1,.38,-.06,.055,'glassL');lump(a,.02,.37,.04,.045,'glassL');
   soft(a,.17,.18,.03,.09,.04,.26,'leaf',0,.02);
   pane(a,-.1,.05,.181,.14,.08);pane(a,.12,.05,.181,.08,.09);pane(a,-.05,.24,.131,.16,.06);
  }
@@ -86490,7 +86509,7 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  function homeC(a){
   soft(a,0,0,0,.48,.16,.38,'white',0,.06);soft(a,0,.15,0,.44,.04,.34,'glass',0,.018);
   soft(a,-.07,.18,-.04,.32,.15,.28,'whiteW',0,.055);soft(a,.17,.18,.02,.1,.05,.3,'leaf',0,.025);
-  for(const zz of [-.09,.03,.13])lump(a,.17,.24,zz,.045,'leafL');soft(a,-.07,.32,-.04,.27,.04,.23,'lawn',0,.018);lump(a,-.12,.37,-.08,.05,'leaf');
+  for(const zz of [-.09,.03,.13])lump(a,.17,.24,zz,.045,'glassL');soft(a,-.07,.32,-.04,.27,.04,.23,'ceramicD',0,.018);lump(a,-.12,.37,-.08,.05,'glassL');
   pane(a,-.1,.04,.191,.16,.08);pane(a,.13,.04,.191,.1,.08);pane(a,-.07,.21,.101,.18,.07);
  }
  clay('futureCHome0',971,a=>homeA(a,0));clay('futureCHome1',972,a=>homeB(a));clay('futureCHome2',973,a=>homeC(a));
@@ -86762,6 +86781,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  for(const [cover,keys] of Object.entries(biome.reservesByCover))for(const key of keys)A.models[key].suitableCovers=[cover];
  biome.townTiers={1:'futureCHome0',2:'futureCTowers',3:'futureCArcology'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
+ // v1.9 era ground palette: no colour carried over from the previous era.
+ Object.assign(S.palette,{grass:'#a8d8bc',forest:'#5fa88c',water:'#1f9a9a',field:'#d3ead0',town:'#eef0ee',mountain:'#b8bec8',civic:'#c9d3e6'});biome.palette={...S.palette};
 })();
 
 </script>
