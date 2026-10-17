@@ -86772,7 +86772,7 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
   mottle:{grass:.035,forest:.04,water:.012,field:.025,town:.015,mountain:.03,civic:.012},
   bank:{water:'#eef0e3',land:'#5b7466'},
   marks:{
-   civic:(r,p,h)=>plates(r,p,h,{spacing:.27,size:.118,lift:.0025,colors:['#cdd7e6','#cad4e4','#d0d9e8']}),
+   civic:(r,p,h)=>plates(r,p,h,{spacing:.27,size:.118,lift:.0025,colors:['#2c4178','#304680','#293b6e']}),
   }});
  biome.palette={...S.palette};
  biome.props={...biome.props,grass:['futureCFlowers0'],forest:['futureCPad0'],field:['futureCBed'],town:['futureCHome0'],mountain:['futureCPeaks'],civic:['futureCSolarFlower']};
@@ -86782,7 +86782,8 @@ for (const name of ["Standard", "Japan", "Hawaii", "Scandinavia", "Greece"]) glo
  biome.townTiers={1:'futureCHome0',2:'futureCTowers',3:'futureCArcology'};
  A.epochs.authoredModels=Object.keys(A.models).filter(k=>A.models[k].source.authored);
  // v1.9 era ground palette: no colour carried over from the previous era.
- Object.assign(S.palette,{grass:'#a8d8bc',forest:'#5fa88c',water:'#1f9a9a',field:'#d3ead0',town:'#eef0ee',mountain:'#b8bec8',civic:'#c9d3e6'});biome.palette={...S.palette};
+ // v1.9b (18.10): strong hue AND value contrast so neighbouring surfaces never blend while placing.
+ Object.assign(S.palette,{grass:'#5fbf8a',forest:'#1e5f52',water:'#3b5fd4',field:'#e39a3b',town:'#b8a48e',mountain:'#6a6f8c',civic:'#22325f'});biome.palette={...S.palette};
 })();
 
 </script>
